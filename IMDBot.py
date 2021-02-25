@@ -1,8 +1,6 @@
-from chatterbot import ChatBot
 import film as f
-
-IMDBot = ChatBot('IMDBot', logic_adapters=[
-        "chatterbot.logic.BestMatch"])
+import person as p
+import company as c
 
 print('IMDBot: Hello There! My name is IMDBot. What is yours?')
 userName = input()
@@ -21,8 +19,7 @@ while True:
             else:
                 print('IMDBot: Sorry, I do not know what you are talking about.') # if a movie is not being currently discussed, tell user it doesn't understand
         else:
-            bot_response = IMDBot.get_response(user_input) # if no command is found, fall back to the bot's neural network to allow for some converation (very WIP, gets better with training and new corpora)
-            print('IMDBot:',bot_response) # print the neural network's generated response
+            print('IMDBot: Sorry, what you are saying is a bit out of my scope right now') 
     except(KeyboardInterrupt, EOFError, SystemExit): #end conversation in case of fatal error or user inputs ctrl+c
         break
 print('\nIMDBot: Goodbye! It was nice talking to you ' + userName)
