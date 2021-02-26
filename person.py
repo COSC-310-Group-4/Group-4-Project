@@ -57,3 +57,13 @@ def isMember(movie, person):
         print(person.title(),"did not work on", movie.title())
 
 
+#display other movies this person has worked in
+def otherRoles(person):
+    pers = ia.search_person(person.title())
+    pers_ID = pers[0].personID
+
+    p = ia.get_person(pers_ID, info=['filmography'])
+    print(p.infoset2keys)
+    print(p.get('filmography'))
+
+otherRoles("Tom Holland")
