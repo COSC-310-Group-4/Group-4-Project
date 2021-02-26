@@ -37,7 +37,7 @@ while True:
                 character = character.split(' ')[0] #continues to cut the string. now it is 'neo'. this might be problematic because it is only looking at the first name
                 person = f.whoPlayed(movie, character)
             else:
-                print('IMDBot: Sorry, I need to know which movie you\'re talking about first. Please sak me to look up a movie first.')
+                print('IMDBot: Sorry, I need to know which movie you\'re talking about first. Please ask me to look up a movie first.')
         elif (user_input.lower().__contains__('how long') or user_input.lower().__contains__('runtime')):
             if 'movie' in locals():
                 movie = f.runtime(movie)
