@@ -15,11 +15,11 @@ def checkName(name): #can be used if the user wants to change their username
     nameCorrect = False
     while nameCorrect == False: #using nameCorrect as a flag
         print(f'IMDBot: Is your name {name}?')
-        nameCheck = input(f'You: ')[:1] #check the first letter of their answer. Only need a y or n
-        if nameCheck == 'y' or nameCheck == 'Y':
+        nameCheck = input(f'You: ')[:1].lower() #check the first letter of their answer. Only need a y or n
+        if nameCheck == 'y':
             print(f'IMDBot: That\'s a cool name, {name}! ', end="")
             nameCorrect = True
-        elif nameCheck == 'n' or nameCheck == 'N':
+        elif nameCheck == 'n':
             print('IMDBot: Sorry I got it wrong. ', end="")
             name = askForName()
         else:
