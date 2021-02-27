@@ -27,7 +27,7 @@ def isMember(movie, person):
             for i in actors:
                 if(str(i).find(person.title()) != -1):
                     target = index
-                    print(person.title(), 'was an actor in', movie.title(), 'and played the role of', actors[target].currentRole)
+                    print("IMDBOT:",person.title(), 'was an actor in', movie.title(), 'and played the role of', actors[target].currentRole)
                 else:
                     index = index + 1
         #Checks to see if the person in a crew member (in the art department)
@@ -38,7 +38,7 @@ def isMember(movie, person):
             for i in art:
                 if(str(i).find(person.title()) != -1):
                     target = index
-                    print(person.title(), 'was a crew member for', movie.title(), 'and this was his role:', art[target].notes)
+                    print("IMDBOT:", person.title(), 'was a crew member for', movie.title(), 'and this was his role:', art[target].notes)
                 else:
                     index = index + 1
         #Checks to see if the person is a director for the movie
@@ -49,12 +49,12 @@ def isMember(movie, person):
             for i in director:
                 if(str(i).find(person.title()) != -1):
                     target = index
-                    print(person.title(), 'was a director for', movie.title())
+                    print("IMDBOT:", person.title(), 'was a director for', movie.title())
                 else:
                     index = index + 1
     #Prints that the person is not a member of the movie's cast or crew
     else:
-        print(person.title(),"did not work on", movie.title())
+        print("IMDBOT:", person.title(),"did not work on", movie.title())
 
 
 #display other movies this person has worked in
@@ -67,7 +67,6 @@ def otherRoles(person):
     p = ia.get_person(pers_ID, info=['filmography'])
 
     #prints 5 of the person's newest movies
-    print(person.title(), "has been in the following movies: ")
+    print("IMDBOT:", person.title(), "has been in the following movies: ")
     for i in range(5):
         print("\t", p.get('filmography')['actor'][i])
-
