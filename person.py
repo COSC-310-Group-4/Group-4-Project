@@ -67,6 +67,6 @@ def otherRoles(person):
     p = ia.get_person(pers_ID, info=['filmography'])
 
     #prints 5 of the person's newest movies
-    print("IMDBOT:", person.title(), "has been in the following movies: ")
+    print("IMDBOT:", person.title(), "is in the following 5 movies: ")
     for i in range(5):
         print("\t", p.get('filmography')['actor'][i])
