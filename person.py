@@ -60,10 +60,14 @@ def isMember(movie, person):
 #display other movies this person has worked in
 def otherRoles(person):
     pers = ia.search_person(person.title())
+    #Gets the imdb code for person
     pers_ID = pers[0].personID
 
+    #Accesses the filmography dictionary of the person
     p = ia.get_person(pers_ID, info=['filmography'])
-    print(p.infoset2keys)
-    print(p.get('filmography'))
 
-otherRoles("Tom Holland")
+    #prints 5 of the person's newest movies
+    print(person.title(), "has been in the following movies: ")
+    for i in range(5):
+        print("\t", p.get('filmography')['actor'][i])
+
