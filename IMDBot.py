@@ -1,3 +1,4 @@
+from re import split
 import film as f
 import person as p
 import company as c
@@ -72,8 +73,39 @@ while True:
             print("IMDBOT: Hmm... let me think...")
             p.otherRoles(person)
             print("IMDBOT: What else would you like to know?")
+        elif(user_input.lower().__contains__('birthday') or user_input.lower().__contains__('birth date')):
+            #Call giveBio() from person.py
+            #Search for birthday/birthdate
+            #"What is the birthday of {any actor name} or birthday/birth date of {any actor name}"
+            #Problem with code you have to type birthday/birth date of {any actor name}(as a whole sentence) in order of it to work! Working on the fix ASAP
+            person = user_input.split("of ")[1] #if user writes 'birthday/birth date of {any actor name}' cuts to '{any actor name}'
+            print("IMDBOT: Hmm... let me think...")
+            p.giveBio(person, 1)
+            print("IMDBOT: What else would you like to know?")
+        elif(user_input.lower().__contains__('birth place')):
+            #Search for birth place of an actor
+            #Example, what is the birth place of {any actor name}
+            person = user_input.split("of ")[1] #What is the birth place of {any actor name} cuts to {any actor name}
+            print("IMDBOT: Hmm... let me think...")
+            p.giveBio(person, 2)
+            print("IMDBOT: What else would you like to know?")
+        elif(user_input.lower().__contains__('check')):
+            #Check if a {any actor name} is in {any movie name}
+            # Example, check if {any actor name} is in {any movie name}
+            person = user_input.split("if")[1]
+            person = person.split('is')[0]
+            movie = user_input.split("in")[1]
+            p.checker(person, movie)
+            print("IMDBOT: What else would you like to know?")
+        elif(user_input.lower().__contains__('bio')):
+            #Gets bio of an actor
+            # bio {any actor name}
+            person = user_input.split("bio ")[1]
+            p.giveBio(person, 4)
+            print("IMDBOT: What else would you like to know?")
         else:
             print('IMDBOT: Sorry, what you are saying is a bit out of my scope right now') 
+
     except(KeyboardInterrupt, EOFError, SystemExit): #end conversation in case of fatal error or user inputs ctrl+c
         break
 print('\nIMDBot: Goodbye! It was nice talking to you ' + userName)

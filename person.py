@@ -1,3 +1,4 @@
+from logging import info
 import imdb
 
 ia = imdb.IMDb()
@@ -70,3 +71,43 @@ def otherRoles(person):
     print("IMDBOT:", person.title(), "has been in the following movies: ")
     for i in range(5):
         print("\t", p.get('filmography')['actor'][i])
+
+#Try to use/call otherRoles in this method because it is calling for filmogrpahy to avoid redundancy 
+#Get Bio of the person such as birthdate and other info
+#left to add... Get the latest movie worked by an actor
+def giveBio(person, x):
+    pers = ia.search_person(person.title())
+
+    #Gets the imdb code for person/movie and put into a varaible
+    p = ia.get_person(pers[0].personID)
+
+    #x==1 then it get birthday/birth date
+    if(x==1):
+        print("IMDBOT: The birth date of ", person.title(),"is", p['birth date'])
+    # x==2 gets the birthplace of the actor
+    elif(x==2):
+        print("IMDBOT: The birth place of ", person.title(),"is", p['birth info']['birth place'])
+    # x==3 gets latest movie the actor is working (in progress.. not done yet)
+    elif(x==3):
+        print()
+    elif(x==4):
+        # Bio needs to made shorter
+        print(p['biography']) 
+    else:
+        print("Try Again")
+
+# Using in operator in Imdb api to check if {any actor name} was in a {any movie name}
+def checker(person, movie):
+    pers = ia.search_person(person.title())
+    mov = ia.search_movie(movie.title())
+
+    #Gets the imdb code for person/movie and put into a varaible
+    p = ia.get_person(pers[0].personID)
+    m = ia.get_movie(mov[0].movieID)
+
+    if(p in m):
+        print("YES")
+    else:
+        print("NO")
+
+
