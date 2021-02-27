@@ -87,9 +87,9 @@ def giveBio(person, x):
     # x==2 gets the birthplace of the actor
     elif(x==2):
         print("IMDBOT: The birth place of ", person.title(),"is", p['birth info']['birth place'])
-    # x==3 gets latest movie the actor is working (in progress.. not done yet)
+    # x==3 gets latest movie the actor is working 
     elif(x==3):
-        print()
+        print("IMDBOT: The latest movie", person.title(), "has worked in is", p.get('filmography')['actor'][1])
     elif(x==4):
         # Bio needs to made shorter
         print(p['biography']) 
@@ -106,8 +106,8 @@ def checker(person, movie):
     m = ia.get_movie(mov[0].movieID)
 
     if(p in m):
-        print("YES")
+        print("YES!") #Update this, Full sentences
     else:
-        print("NO")
+        print("NO!") #Update this, Full sentences
 
 
