@@ -15,16 +15,14 @@ def findCompany(movie): # Find the companies that produce the given movie
     # get the list of companies of the movie 
     companies = movie.data['production companies']
 
-    print("The production companies for the movie " + movieName + " are:")
+    if len(companies) == 0:
+        print("IMDBot: There is no production company for this movie")
+    else:
+        print("IMDBot: The production companies for the movie " + movieName + " are:")
 
-    # print the companies
-    for company in companies:
-        print(company['name'])
+        # print the companies
+        for company in companies:
+            print(company['name'])
+
 
     return companies # return the set of companies
-
-
-
-    
-
-

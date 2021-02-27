@@ -22,8 +22,9 @@ while True:
             else:
                 print('IMDBot: Sorry, I don\'t know which movie you\'re asking about to find the director. Try to ask me to find a movie :)') # if a movie is not being currently discussed, tell user it doesn't understand
         elif (user_input.lower().__contains__('production company') or user_input.lower().__contains__('production companies')):
-                companies = c.findCompany(movie) # list the production companies of the movie asked
-                print('IMDBot: What else would you like to know about the movie? :)')
+            print("IMDBot: Okay, let me search the production companies for you!") # buffer for searching companies
+            companies = c.findCompany(movie) # list the production companies of the movie asked
+            print('IMDBot: What else would you like to know about the movie? :)')
         elif (user_input.lower().__contains__('summary') or user_input.lower().__contains__('plot')):
             if 'movie' in locals():
                 movie = f.giveSummary(movie)
