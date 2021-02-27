@@ -53,18 +53,15 @@ while True:
             print('How can I help you?') #concatenates to "IMDBot: That's a cool name, userName! "
         elif (user_input.lower().__contains__('nevermind')):
             print(f'IMDBot: Ok. How can I help?')
-        elif(user_input.lower().__contains__('a member of')):
+        elif(user_input.lower().__contains__('worked on') or user_input.lower().__contains__('role in')):
             #takes in user input and calls isMember() from person.py
-            #input needs to be in the form: "is Tom Holland a member of the movie Cherry"
-            #input can only handle people (2 words)
-            #Does not work on the name Chris
-            person = user_input.split("is ")[1]
-            person = person.split(' a')[0]
-            movie = user_input.split("movie ")[1]
-            print("IMDBOT: Hmm... let me check...")
-            p.isMember(movie, person)
-            print("IMDBOT: What else do you want to know about", person, "?")
+            if 'movie' in locals():
+                print("IMDBOT: Hmm... let me check...")
+                p.isMember(movie, person)
+            else:
+                print("IMDBOT: Sorry, I could not find anything about that")
         elif(user_input.lower().__contains__('what other')):
+<<<<<<< HEAD
             #takes in user input and calls otherRoles() from person.py
             #input needs to be in the form: "what other movies is Tom Holland in"
             #person's name has to be 2 words
@@ -111,6 +108,15 @@ while True:
             person = user_input.split("bio ")[1]
             p.giveBio(person, 4)
             print("IMDBOT: What else would you like to know?")
+=======
+            #takes in user input and calls otherRoles() from person.pys
+            if 'movie' in locals():
+                print("IMDBOT: Hmm... let me check...")
+                p.otherRoles(person)
+                print("IMDBOT: What else would you like to know?")
+            else:
+                print("IMDBOT: Sorry, looks like they're not in any other work")
+>>>>>>> 54481c446084a507ef98b578d5bb25e051525a4f
         else:
             print('IMDBOT: Sorry, what you are saying is a bit out of my scope right now') 
 
