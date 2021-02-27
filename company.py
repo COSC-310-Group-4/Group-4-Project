@@ -11,9 +11,9 @@ def findCompany(movie): # Find the companies that produce the given movie
 
     if len(companies) == 0:
         print("IMDBot: There is no production company for this movie")
-        return;
+        return
     else:
-        print("IMDBot: The production company is: " + companies[0]['name'])
+        print("IMDBot: The production company is:" + companies[0]['title'])
 
     return companies[0] # return the main company of the movie production
 
