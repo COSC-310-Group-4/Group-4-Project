@@ -86,6 +86,14 @@ while True:
             print("IMDBOT: Hmm... let me think...")
             p.giveBio(person, 2)
             print("IMDBOT: What else would you like to know?")
+        elif(user_input.lower().__contains__('latest movie')):
+            #Search for a latest movie by an actor
+            #Example, what is the latest movie {any actor name} has worked in
+            person = user_input.split("movie ")[1]
+            person = person.split("has")[0]
+            print("IMDBOT: Hmm... let me think...")
+            p.giveBio(person, 3)
+            print("IMDBOT: What else would you like to know?")
         elif(user_input.lower().__contains__('check')):
             #Check if a {any actor name} is in {any movie name}
             # Example, check if {any actor name} is in {any movie name}
