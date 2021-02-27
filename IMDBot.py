@@ -55,23 +55,25 @@ while True:
         elif(user_input.lower().__contains__('a member of')):
             #takes in user input and calls isMember() from person.py
             #input needs to be in the form: "is Tom Holland a member of the movie Cherry"
-            #input can only handle people (2 words) and a movie (1 word)
+            #input can only handle people (2 words)
+            #Does not work on the name Chris
             person = user_input.split("is ")[1]
             person = person.split(' a')[0]
             movie = user_input.split("movie ")[1]
+            print("IMDBOT: Hmm... let me check...")
             p.isMember(movie, person)
-            print("IMDBOT: They did a great job on the movie! What else do you want to know?")
+            print("IMDBOT: What else do you want to know about", person, "?")
         elif(user_input.lower().__contains__('what other')):
             #takes in user input and calls otherRoles() from person.py
             #input needs to be in the form: "what other movies is Tom Holland in"
             #person's name has to be 2 words
             person = user_input.split("is")[1]
             person = person.split('in')[0]
+            print("IMDBOT: Hmm... let me think...")
             p.otherRoles(person)
             print("IMDBOT: What else would you like to know?")
-            
         else:
-            print('IMDBot: Sorry, what you are saying is a bit out of my scope right now') 
+            print('IMDBOT: Sorry, what you are saying is a bit out of my scope right now') 
     except(KeyboardInterrupt, EOFError, SystemExit): #end conversation in case of fatal error or user inputs ctrl+c
         break
 print('\nIMDBot: Goodbye! It was nice talking to you ' + userName)
