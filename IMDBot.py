@@ -52,23 +52,21 @@ while True:
             print('How can I help you?') #concatenates to "IMDBot: That's a cool name, userName! "
         elif (user_input.lower().__contains__('nevermind')):
             print(f'IMDBot: Ok. How can I help?')
-        elif(user_input.lower().__contains__('worked on')):
+        elif(user_input.lower().__contains__('worked on') or user_input.lower().__contains__('role in')):
             #takes in user input and calls isMember() from person.py
-            #input needs to be in the form: "has Tom Holland worked on the movie Cherry"
-            person = user_input.split("has ")[1]
-            person = person.split(' worked')[0]
-            movie = user_input.split("movie ")[1]
-            print("IMDBOT: Hmm... let me check...")
-            p.isMember(movie, person)
-            print("IMDBOT: What else do you want to know about "+ person+ "?")
+            if 'movie' in locals():
+                print("IMDBOT: Hmm... let me check...")
+                p.isMember(movie, person)
+            else:
+                print("IMDBOT: Sorry, I could not find anything about that")
         elif(user_input.lower().__contains__('what other')):
-            #takes in user input and calls otherRoles() from person.py
-            #input needs to be in the form: "what other movies has Tom Holland been in"
-            person = user_input.split("has ")[1]
-            person = person.split('been')[0]
-            print("IMDBOT: Hmm... let me think...")
-            p.otherRoles(person)
-            print("IMDBOT: What else would you like to know?")
+            #takes in user input and calls otherRoles() from person.pys
+            if 'movie' in locals():
+                print("IMDBOT: Hmm... let me check...")
+                p.otherRoles(person)
+                print("IMDBOT: What else would you like to know?")
+            else:
+                print("IMDBOT: Sorry, looks like they're not in any other work")
         else:
             print('IMDBOT: Sorry, what you are saying is a bit out of my scope right now') 
     except(KeyboardInterrupt, EOFError, SystemExit): #end conversation in case of fatal error or user inputs ctrl+c
