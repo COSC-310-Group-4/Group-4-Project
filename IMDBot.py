@@ -61,15 +61,12 @@ while True:
             else:
                 print("IMDBOT: Sorry, I could not find anything about that")
         elif(user_input.lower().__contains__('what other')):
-<<<<<<< HEAD
             #takes in user input and calls otherRoles() from person.py
-            #input needs to be in the form: "what other movies is Tom Holland in"
-            #person's name has to be 2 words
-            person = user_input.split("is")[1]
-            person = person.split('in')[0]
-            print("IMDBOT: Hmm... let me think...")
-            p.otherRoles(person)
-            print("IMDBOT: What else would you like to know?")
+            if 'movie' in locals():
+                print("IMDBOT: Hmm... let me think...")
+                p.otherRoles(person)
+            else:
+                print("IMDBOT: Sorry i am not sure how to help with that")
         elif(user_input.lower().__contains__('birthday') or user_input.lower().__contains__('birth date')):
             #Call giveBio() from person.py
             #Search for birthday/birthdate
@@ -108,15 +105,6 @@ while True:
             person = user_input.split("bio ")[1]
             p.giveBio(person, 4)
             print("IMDBOT: What else would you like to know?")
-=======
-            #takes in user input and calls otherRoles() from person.pys
-            if 'movie' in locals():
-                print("IMDBOT: Hmm... let me check...")
-                p.otherRoles(person)
-                print("IMDBOT: What else would you like to know?")
-            else:
-                print("IMDBOT: Sorry, looks like they're not in any other work")
->>>>>>> 54481c446084a507ef98b578d5bb25e051525a4f
         else:
             print('IMDBOT: Sorry, what you are saying is a bit out of my scope right now') 
 
