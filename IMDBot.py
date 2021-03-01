@@ -21,11 +21,7 @@ while True:
             if 'movie' in locals(): # check if a movie is being spoken about
                 person = f.findDirector(movie)
             else:
-                print('IMDBot: Sorry, I don\'t know which movie you\'re asking about to find the director. Try to ask me to find a movie :)') # if a movie is not being currently discussed, tell user it doesn't understand
-        elif (user_input.lower().__contains__('production company') or user_input.lower().__contains__('production companies')):
-            print("IMDBot: Okay, let me search the production companies for you!") # buffer for searching companies
-            companies = c.findCompany(movie) # list the production companies of the movie asked
-            print('IMDBot: What else would you like to know about the movie? :)')
+                print('IMDBot: Sorry, I don\'t know which movie you\'re asking about to find the director. Try to ask me to find a movie :)') # if a movie is not being currently discussed, tell user it doesn't understand 
         elif (user_input.lower().__contains__('summary') or user_input.lower().__contains__('plot')):
             if 'movie' in locals():
                 movie = f.giveSummary(movie)
@@ -104,6 +100,17 @@ while True:
             # bio {any actor name}
             person = user_input.split("bio ")[1]
             p.giveBio(person, 4)
+            print("IMDBOT: What else would you like to know?")
+        elif (user_input.lower().__contains__('production company') or user_input.lower().__contains__('production companies')):
+            print("IMDBot: Okay, let me search the production companies for you!") # buffer for searching companies
+            company = c.findCompany(movie) # list the production companies of the movie asked
+            print('IMDBot: What else would you like to know about the company? :)')
+        elif (user_input.lower().__contains__('produced other movie')):
+            otherMovie = c.findMovieForCompany(userName)
+            if c.isProduction(company,otherMovie):
+                print('IMDBot: Yes, this company has worked on ' + otherMovie['title'])
+            else:
+                print('IMDBot: No, this company did not work on ' + otherMovie['title'])
             print("IMDBOT: What else would you like to know?")
         else:
             print('IMDBOT: Sorry, what you are saying is a bit out of my scope right now') 
