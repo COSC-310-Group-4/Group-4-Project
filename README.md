@@ -8,7 +8,7 @@ To do this, the project has been separated into 5 classes
 - IMDBot.py:
 
 - user.py:
-- 
+
 - film.py:
 
 - person.py:
