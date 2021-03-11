@@ -31,7 +31,9 @@ For this project, we created a responsive and interactive chatbot using Python w
 
 ## Classes
 
-The project has been separated into 5 classes to organize the functions
+The project has been separated into 5 classes to organize the functions. 
+
+To see the class structure, take a look at the [UML Diagram](https://lucid.app/publicSegments/view/de85de90-df23-4491-854b-1e038ab2dbc6/image.pdf)
 
 ### 1. IMDBot.py
 
