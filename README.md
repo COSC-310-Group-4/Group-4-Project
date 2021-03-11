@@ -52,7 +52,7 @@ The project has been separated into 5 classes to organize the functions
 
 ### 4. person.py
 
-- This class handles commands related to peple in the movie industry, this includes, actors, directors and other crewmembers
+- This class handles commands related to people in the movie industry, this includes, actors, directors and other crewmembers
 - this class can be used to find the projects a person has worked on as well as general biographical information on them
 - it can also check if an individual has worked in a specific movie.
 
